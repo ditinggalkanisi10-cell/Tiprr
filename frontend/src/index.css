@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 5%; --foreground: 0 0% 94%; --card: 0 0% 7%; --card-foreground: 0 0% 94%;
+    --popover: 0 0% 9%; --popover-foreground: 0 0% 94%; --primary: 0 0% 94%; --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 13%; --secondary-foreground: 0 0% 94%; --muted: 0 0% 12%; --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 13%; --accent-foreground: 0 0% 94%; --destructive: 0 65% 55%; --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 17%; --input: 0 0% 19%; --ring: 0 0% 68%; --radius: 0.4rem;
+  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; margin: 0; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+}
+* { box-sizing: border-box; letter-spacing: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 25px; }
+::selection { background: #dffb99; color: #0d0d0d; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button, a { transition: background-color .18s, color .18s, border-color .18s, opacity .18s, transform .18s; }
+button:not(:disabled), a { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid #d7efa0; outline-offset: 4px; }
+input, select { font-family: inherit; }
+a { text-decoration: none; }
+svg { flex-shrink: 0; }
+code { font-family: 'Space Mono', monospace; font-size: 12px; }
+.spin { animation: spin 1.3s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
