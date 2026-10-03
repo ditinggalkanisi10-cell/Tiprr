@@ -9,13 +9,12 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline-color: #ff
 
 /* Use the supplied original artwork as the complete brand, never a second text label. */
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; gap: 0; line-height: 1; }
-.brand-art { display: block; width: 106px; height: 65px; object-fit: contain; object-position: center; flex-shrink: 0; }
+.brand-art { display: block; width: 106px; height: 65px; object-fit: contain; object-position: center; image-rendering: auto; flex-shrink: 0; }
 .brand > .brand-art { width: 115px; height: 69px; }
 .site-header { height: 92px; }
 .site-header .brand { align-self: stretch; }
 .sidebar > .brand { margin: 0 8px 32px; align-self: flex-start; }
 .sidebar .brand-art { width: 139px; height: 82px; }
-.site-footer .brand-art { width: 91px; height: 55px; }
 .brand.mobile-brand { display: none; }
 .hero-brand-art { position: absolute; width: 130px; height: 81px; right: -164px; top: -7px; transform: rotate(7deg); }
 .hero-brand-caption { position: absolute; right: -184px; top: 84px; color: #777; font-size: 9px; line-height: 1.7; text-align: left; transform: rotate(-5deg); }
@@ -98,8 +97,8 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline-color: #ff
   .sidebar .brand-art { width: 125px; height: 75px; }
 }
 @media (max-width: 680px) {
-  .site-header { height: 83px; gap: 12px; }
-  .site-header .brand-art { width: 100px; height: 64px; }
+  .site-header { height: 70px; gap: 12px; }
+  .site-header .brand-art { width: 84px; height: 44px; }
   .header-actions { gap: 13px; }
   .header-dashboard { font-size: 9px; }
   .login-button { font-size: 9px; padding-inline: 9px; }
@@ -107,11 +106,13 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline-color: #ff
   .hero-brand-art { display: none; }
   .page-heading h1 { font-size: 32px; line-height: 1.15; }
   .brand.mobile-brand { display: inline-flex; }
-  .mobile-brand .brand-art { width: 84px; height: 51px; }
-  .workspace-header { height: 74px; }
+  .mobile-brand .brand-art { width: 84px; height: 44px; }
+  .workspace-header { height: 70px; }
   .workspace-header .primary-button { font-size: 8px; }
   .bot-avatar .brand-art { width: 27px; height: 20px; }
-  .site-footer .brand-art { width: 86px; height: 53px; }
+  .site-footer { flex-direction: column; justify-content: center; align-items: center; gap: 13px; }
+  .site-footer > span { order: 0; width: auto; text-align: center; }
+  .site-footer > a:last-child { margin-left: 0; }
   .bottom-cta > .brand-art { width: 68px; height: 43px; }
   .bottom-cta > div { min-width: calc(100% - 85px); }
   .bottom-cta > .primary-button { margin-left: 84px; }
@@ -124,5 +125,5 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline-color: #ff
   .hero h1 { font-size: 35px; }
   .workspace-header { padding-inline: 12px; }
   .workspace-header-right { gap: 7px; }
-  .mobile-brand .brand-art { width: 74px; height: 47px; }
+  .site-header .brand-art, .mobile-brand .brand-art { width: 80px; height: 42px; }
 }

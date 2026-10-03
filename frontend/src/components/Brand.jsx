@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const BrandImage = ({ className = '', testId = 'tiprr-logo' }) => <img data-testid={testId} className={`brand-art ${className}`} src="/tiprr-logo-pixel.png" alt="Tiprr pixel wordmark" />;
+export const BrandImage = ({ className = '', testId = 'tiprr-logo' }) => <img data-testid={testId} className={`brand-art ${className}`} src="/tiprr-logo-smooth.png" alt="Tiprr pixel wordmark" />;
 
 export const Brand = ({ testId = 'brand-home', className = '' }) => <Link to="/" className={`brand ${className}`} aria-label="TIPRR home" data-testid={testId}><BrandImage testId={`${testId}-logo`} /></Link>;
 

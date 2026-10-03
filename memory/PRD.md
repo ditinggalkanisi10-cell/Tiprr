@@ -113,4 +113,16 @@ Original requirements cover official X OAuth 2.0, an independent real X bot, Sol
 
 ## Next session handoff (continued)
 
+## Smoother logo + mobile header/footer fix — 2026-10-03
+
+- User provided newer, smoother artwork and requested balanced (not oversized/tiny) mobile top-left branding plus removal of the duplicated logo in the very bottom footer. Confirmed: keep the CTA logo beside “Make someone’s timeline a little better”; delete only the logo in the footer below it.
+- Latest approved source: `https://customer-assets-jai6qajn.emergentagent.net/job_bonk-sender/artifacts/ej4qpsyn_file_00000000458481faa7d09ab1401e8c2c.png`. Supersedes the previous pixel logo artwork, not the pixel-clean website styling.
+- Assets: original saved as `tiprr-logo-smooth-original.png`; connected exterior background removal produces transparent `tiprr-logo-smooth.png` (1183x595), preserving all original interior black/white/gray art. `tiprr-logo-smooth-icon.png` used for favicon and touch icon. Shared BrandImage updates every visible logo; no redraw or robotic mascot.
+- Home and workspace mobile headers now70px tall; logos80x42px at320/360px viewport widths,84x44px at390/430px widths. Image remains contained and smoothly resampled. Desktop sizing unchanged.
+- Removed Brand from final `.site-footer`; retained message + status link and centered these on mobile. `bottom-cta-logo` remains exactly once above footer. Existing content, animations, pixel theme, financial/auth/backend flows unchanged.
+- Independent required bugfix verification PASSED: `test_reports/iteration_4.json`, no remaining issues. Verified exact mobile dimensions, no overlap/overflow/duplicate text, all current logo assets load, zero footer images/brand links, exactly one CTA logo, and working top brand/footer status/login dialog interactions. Screenshot evidence under `test_reports/screens_rebrand_iter5/`.
+- No next tasks required for this visual fix. Existing devnet/X/claims/UsePaid production limitations/backlog remain unchanged.
+
+## Current handoff
+
 Read TIPRR_SETUP.md, this PRD and test_reports/iteration_2.json first. Do not call the app a production-ready bot. Do not enable X from env values alone: identity + worker phase remains unimplemented. Do not accept arbitrary manual treasury deposits as credited. Keep the provided environment URLs and Mongo URI intact. Test accounts use ephemeral generated keys; there is intentionally no shared wallet private key in test_credentials.md.
