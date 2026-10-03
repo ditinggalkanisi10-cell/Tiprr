@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { ArrowUpRight, Loader2, Wallet, List } from 'lucide-react';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
-import { Bot } from './Brand';
+import { BrandImage } from './Brand';
 import { useApp } from '../context/AppContext';
 import { explorer, short } from '../lib/api';
 
 export const PageHeading = ({ eyebrow, title, description, action }) => <div className="page-heading"><div><span className="small-label" data-testid="page-eyebrow">{eyebrow}</span><h1 data-testid="page-heading">{title}</h1>{description && <p data-testid="page-description">{description}</p>}</div>{action}</div>;
-export const EmptyState = ({ title, description, action, id = 'empty-state' }) => <div className="empty-state" data-testid={id}><Bot testId={`${id}-bot`}/><h3 data-testid={`${id}-title`}>{title}</h3><p data-testid={`${id}-description`}>{description}</p>{action}</div>;
+export const EmptyState = ({ title, description, action, id = 'empty-state' }) => <div className="empty-state" data-testid={id}><BrandImage testId={`${id}-logo`}/><h3 data-testid={`${id}-title`}>{title}</h3><p data-testid={`${id}-description`}>{description}</p>{action}</div>;
 export const ConnectPrompt = () => {
   const { setWalletOpen } = useApp();
   return <div className="connect-prompt" data-testid="connect-prompt"><div><Wallet size={18}/><span>One wallet signature. Your own devnet workspace.</span></div><Button variant="outline" data-testid="connect-prompt-button" onClick={() => setWalletOpen(true)}>Connect wallet <ArrowUpRight size={15}/></Button></div>;

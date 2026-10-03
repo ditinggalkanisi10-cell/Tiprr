@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import Status from './pages/Status';
 import Admin from './pages/Admin';
 import './App.css';
+import './pixel-theme.css';
 
 const ScrollReset = () => { const { pathname } = useLocation(); useEffect(() => { window.scrollTo(0, 0); }, [pathname]); return null; };
 function App() {

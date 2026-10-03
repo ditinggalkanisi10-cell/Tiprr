@@ -9,5 +9,26 @@ const links = [ ['/dashboard', LayoutDashboard, 'Overview'], ['/deposit', ArrowD
 
 export const AppLayout = () => {
   const { user, setWalletOpen, logout } = useApp();
-  return <div className="workspace"><aside className="sidebar"><Brand testId="sidebar-brand"/><div className="sidebar-workspace-label" data-testid="workspace-label">YOUR LITTLE CORNER</div><nav aria-label="Dashboard navigation">{links.map(([path, Icon, text]) => <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'sidebar-link active' : 'sidebar-link'} data-testid={`side-${text.toLowerCase()}`}><Icon size={18}/>{text}{text === 'Claims' && <span>0</span>}</NavLink>)}</nav><div className="sidebar-bottom"><NavLink to="/status" className="sidebar-link" data-testid="side-status"><Activity size={17}/>System status</NavLink><NavLink to="/admin" className="sidebar-link" data-testid="side-admin"><Shield size={17}/>Admin</NavLink><div className="sidebar-network"><Network testId="sidebar-network"/><span data-testid="sidebar-no-funds">No real funds. Just good testing.</span></div></div></aside><div className="workspace-main"><header className="workspace-header"><Link to="/" className="mobile-brand" data-testid="mobile-home">TIPRR.</Link><span className="workspace-breadcrumb" data-testid="workspace-breadcrumb">TIPRR <span>/</span> Your workspace</span><div className="workspace-header-right"><span className="testnet-tag" data-testid="workspace-devnet-label">DEVNET</span>{user ? <><span className="wallet-chip" data-testid="connected-wallet-address"><span className="status-dot"/>{short(user.wallet)}</span><button className="icon-button" title="Disconnect" onClick={logout} data-testid="disconnect-wallet"><LogOut size={17}/></button></> : <Button className="primary-button compact" onClick={() => setWalletOpen(true)} data-testid="header-connect-wallet"><Wallet size={15}/> Connect wallet</Button>}</div></header><nav className="mobile-app-nav">{links.map(([path, Icon, text]) => <NavLink key={path} to={path} data-testid={`mobile-nav-${text.toLowerCase()}`}><Icon size={18}/><span>{text}</span></NavLink>)}</nav><div className="workspace-content"><Outlet/></div><footer className="workspace-footer" data-testid="workspace-footer">DEVELOPMENT MODE — NO REAL FUNDS <Link to="/status" data-testid="workspace-status-link">Integration status ↗</Link></footer></div></div>;
+  return <div className="workspace">
+    <aside className="sidebar">
+      <Brand testId="sidebar-brand"/>
+      <div className="sidebar-workspace-label" data-testid="workspace-label">YOUR LITTLE CORNER</div>
+      <nav aria-label="Dashboard navigation">{links.map(([path, Icon, text]) => <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'sidebar-link active' : 'sidebar-link'} data-testid={`side-${text.toLowerCase()}`}><Icon size={18}/>{text}{text === 'Claims' && <span>0</span>}</NavLink>)}</nav>
+      <div className="sidebar-bottom">
+        <NavLink to="/status" className="sidebar-link" data-testid="side-status"><Activity size={17}/>System status</NavLink>
+        <NavLink to="/admin" className="sidebar-link" data-testid="side-admin"><Shield size={17}/>Admin</NavLink>
+        <div className="sidebar-network"><Network testId="sidebar-network"/><span data-testid="sidebar-no-funds">No real funds. Just good testing.</span></div>
+      </div>
+    </aside>
+    <div className="workspace-main">
+      <header className="workspace-header">
+        <Brand className="mobile-brand" testId="mobile-home"/>
+        <span className="workspace-breadcrumb" data-testid="workspace-breadcrumb">TIPRR <span>/</span> Your workspace</span>
+        <div className="workspace-header-right"><span className="testnet-tag" data-testid="workspace-devnet-label">DEVNET</span>{user ? <><span className="wallet-chip" data-testid="connected-wallet-address"><span className="status-dot"/>{short(user.wallet)}</span><button className="icon-button" title="Disconnect" onClick={logout} data-testid="disconnect-wallet"><LogOut size={17}/></button></> : <Button className="primary-button compact" onClick={() => setWalletOpen(true)} data-testid="header-connect-wallet"><Wallet size={15}/> Connect wallet</Button>}</div>
+      </header>
+      <nav className="mobile-app-nav">{links.map(([path, Icon, text]) => <NavLink key={path} to={path} data-testid={`mobile-nav-${text.toLowerCase()}`}><Icon size={18}/><span>{text}</span></NavLink>)}</nav>
+      <div className="workspace-content"><Outlet/></div>
+      <footer className="workspace-footer" data-testid="workspace-footer">DEVELOPMENT MODE — NO REAL FUNDS <Link to="/status" data-testid="workspace-status-link">Integration status ↗</Link></footer>
+    </div>
+  </div>;
 };

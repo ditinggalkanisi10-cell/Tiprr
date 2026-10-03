@@ -1,0 +1,128 @@
+/* Pixel-clean visual layer. All content, routes and product behavior are retained. */
+:root {
+  --font-title: 'Pixelify Sans', 'Space Mono', monospace;
+  --lime: #eeeeee;
+  --radius: 0.125rem;
+}
+::selection { background: #e6e6e6; color: #111; }
+button:focus-visible, a:focus-visible, select:focus-visible { outline-color: #fff; }
+
+/* Use the supplied original artwork as the complete brand, never a second text label. */
+.brand { display: inline-flex; align-items: center; flex-shrink: 0; gap: 0; line-height: 1; }
+.brand-art { display: block; width: 106px; height: 65px; object-fit: contain; object-position: center; flex-shrink: 0; }
+.brand > .brand-art { width: 115px; height: 69px; }
+.site-header { height: 92px; }
+.site-header .brand { align-self: stretch; }
+.sidebar > .brand { margin: 0 8px 32px; align-self: flex-start; }
+.sidebar .brand-art { width: 139px; height: 82px; }
+.site-footer .brand-art { width: 91px; height: 55px; }
+.brand.mobile-brand { display: none; }
+.hero-brand-art { position: absolute; width: 130px; height: 81px; right: -164px; top: -7px; transform: rotate(7deg); }
+.hero-brand-caption { position: absolute; right: -184px; top: 84px; color: #777; font-size: 9px; line-height: 1.7; text-align: left; transform: rotate(-5deg); }
+.bot-avatar { border-radius: 2px; background: #111; border-color: #444; }
+.bot-avatar .brand-art { width: 32px; height: 22px; }
+.empty-state .brand-art { width: 107px; height: 67px; opacity: .7; margin-bottom: 23px; }
+.bottom-cta > .brand-art { width: 90px; height: 56px; }
+
+/* Titles carry the pixel character; paragraphs, money values and forms remain easy to scan. */
+.hero h1 { font-family: var(--font-title); font-weight: 500; font-size: 64px; line-height: 1.12; }
+.page-heading h1 { font-family: var(--font-title); font-weight: 500; }
+.section-heading, .section-line h2, .bottom-cta h2, .empty-state h3,
+.transfer-aside h2, .status-item h2, .admin-gate h2 { font-family: var(--font-title); }
+.step h3 { font-family: var(--font-title); font-size: 16px; font-weight: 500; }
+.tiprr-dialog h2 { font-family: var(--font-title); font-size: 24px; }
+.asset-amount, .claim-summary strong, .admin-stats strong { font-family: 'DM Sans', sans-serif; }
+.amount-input-wrap input { font-family: 'DM Sans', sans-serif; }
+.small-label, .hero-eyebrow, .demo-topline, .sidebar-workspace-label { color: #989898; }
+.hero-grid { background-size: 24px 24px; opacity: .85; }
+.hero-corner { font-family: var(--font-mono); font-weight: 700; color: #666; }
+.status-dot, .nav-status-dot { border-radius: 0; background: #e3e3e3; box-shadow: none; }
+.x-spark { color: #eee; font-family: var(--font-title); }
+.hero-description { color: #a0a0a0; }
+
+/* Hard edges and one restrained offset shadow instead of pill-shaped decoration. */
+.primary-button, .login-button { border-radius: 1px; box-shadow: 3px 3px 0 #555; }
+.primary-button:hover, .login-button:hover { background: #fff; border-color: #fff; box-shadow: 2px 2px 0 #777; transform: translate(-1px, -1px); }
+.primary-button:active, .login-button:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 #555; }
+.primary-button:disabled, .login-button:disabled { box-shadow: none; transform: none; }
+.primary-button, .login-button, .page-action-pair > a, .page-action-pair > button,
+.result-actions > button, .connection-row > button, .connect-prompt > button,
+.wallet-option, .claim-identity > button { font-family: var(--font-mono); font-size: 10px; }
+.sidebar-link, .balance-asset, .add-token, .connect-prompt, .command-preview,
+.devnet-status-banner, .form-select, .transfer-form input, .search-input input,
+.transfer-result, .icon-button, .dialog-symbol, .connection-logo, .wallet-option,
+.devnet-notice, .required-keys code, .configuration-label, .demo-asset-tabs button,
+.testnet-tag, .aside-symbol, .form-error { border-radius: 2px; }
+.tiprr-dialog { border-radius: 2px !important; box-shadow: 6px 6px 0 #40404080; }
+.bot-demo { border-radius: 2px; border-color: #4a4a4a; box-shadow: 5px 5px 0 #303030; }
+.demo-topline { background: #191919; }
+.human-avatar { background: #cacaca; color: #222; border-radius: 2px; }
+.human-avatar > span { color: #666; }
+.tweet-command, .reply-text > span, .command-preview code { color: #eee; }
+.typing-cursor { background: #eee; }
+.processing-dots { color: #ccc; }
+.demo-asset-tabs button.selected { color: #111; background: #e6e6e6; border-color: #e6e6e6; }
+.demo-annotation, .handwritten, .demo-right-note { color: #828282; }
+.demo-right-note > span { color: #888; }
+.asset-list > span { font-family: var(--font-mono); font-size: 11px; }
+.asset-list .coin { filter: grayscale(1); }
+.add-token:hover { border-color: #999; background: #1b1b1b; }
+.sidebar-link.active { background: #262626; color: #f2f2f2; border-color: #4a4a4a; box-shadow: -3px 0 0 #ddd; }
+.sidebar-link > span { background: #353535; color: #ddd; border-radius: 1px; }
+.connect-prompt { background: #191919; border-color: #363636; }
+.connect-prompt > div { color: #aaa; }
+.connect-prompt > button { color: #e1e1e1; background: #242424; border-color: #484848; }
+.connection-status button { border-radius: 2px; }
+.testnet-tag { color: #ccc; border-color: #4b4b4b; background: #222; }
+.development-bar { background: #181818f5; border-color: #333; color: #b7b7b7; }
+.development-bar > .tiny-square { background: #ddd; }
+.development-bar > a { color: #999; }
+.dev-bar-divider { color: #777; }
+.workspace-footer { color: #999; }
+.devnet-status-banner, .devnet-notice { color: #ddd; background: #1a1a1a; border-color: #3c3c3c; }
+.devnet-status-banner p { color: #aaa; }
+.aside-symbol { color: #ddd; background: #202020; border-color: #444; }
+.mobile-app-nav > a.active { color: #eee; border-color: #eee; }
+.filter-tabs button.active { border-bottom-color: #eee; }
+.claim-summary > svg, .claim-identity svg, .admin-gate > svg { color: #ccc; }
+.sol-coin, .custom-coin { background: #272727; border-color: #555; color: #ddd; }
+
+@media (max-width: 1150px) {
+  .hero-brand-art { width: 106px; height: 65px; right: -131px; top: -1px; }
+  .hero-brand-caption { display: none; }
+  .hero h1 { font-size: 56px; }
+}
+@media (max-width: 900px) {
+  .hero-brand-art { width: 82px; height: 54px; right: -99px; top: 1px; }
+  .hero h1 { font-size: 49px; }
+  .sidebar .brand-art { width: 125px; height: 75px; }
+}
+@media (max-width: 680px) {
+  .site-header { height: 83px; gap: 12px; }
+  .site-header .brand-art { width: 100px; height: 64px; }
+  .header-actions { gap: 13px; }
+  .header-dashboard { font-size: 9px; }
+  .login-button { font-size: 9px; padding-inline: 9px; }
+  .hero h1 { font-size: 40px; line-height: 1.16; }
+  .hero-brand-art { display: none; }
+  .page-heading h1 { font-size: 32px; line-height: 1.15; }
+  .brand.mobile-brand { display: inline-flex; }
+  .mobile-brand .brand-art { width: 84px; height: 51px; }
+  .workspace-header { height: 74px; }
+  .workspace-header .primary-button { font-size: 8px; }
+  .bot-avatar .brand-art { width: 27px; height: 20px; }
+  .site-footer .brand-art { width: 86px; height: 53px; }
+  .bottom-cta > .brand-art { width: 68px; height: 43px; }
+  .bottom-cta > div { min-width: calc(100% - 85px); }
+  .bottom-cta > .primary-button { margin-left: 84px; }
+  .hero-actions .primary-button { font-size: 10px; }
+  .step h3 { font-size: 17px; }
+  .empty-state h3 { font-size: 18px; }
+  .asset-list > span { font-size: 9px; }
+}
+@media (max-width: 360px) {
+  .hero h1 { font-size: 35px; }
+  .workspace-header { padding-inline: 12px; }
+  .workspace-header-right { gap: 7px; }
+  .mobile-brand .brand-art { width: 74px; height: 47px; }
+}

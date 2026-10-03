@@ -92,4 +92,25 @@ Original requirements cover official X OAuth 2.0, an independent real X bot, Sol
 
 ## Next session handoff
 
+## Mascot update — 2026-10-03 (superseded by wordmark below)
+
+- User supplied a pixel robot reference and requested a cleaner redraw preserving its recognizable art: “Dominan hitam, outline dan mata putih, background transparan” and “Edit karakternya draw ulamg biar lebih oke”.
+- Generated a reference-based redraw retaining the oversized stepped head, antenna, square eyes and compact body. Prepared true transparent, pure black/white PNG assets (no green background or baked transparency pattern).
+- Shared Bot component now uses `/tiprr-mascot-v2.png` throughout header, hero, illustrative bot replies, dashboard/claims/activity empty states and footer. Favicon updated to `/tiprr-favicon-v2.png`.
+- Stable logo sizing and stronger empty-state contrast are defined in `frontend/src/mascot.css`. Backend, authentication and financial behavior are unchanged.
+
+## Pixel wordmark rebrand — 2026-10-03
+
+- Latest user requirement: “Ganti bro pake ini jangan robot mascot lagi” and remove the extra upper-left Tiprr text so it does not overlap the logo. Selected “Pixel clean: logo asli, judul pixel, tombol bersudut tegas, aksen hitam-putih; isi tetap mudah dibaca.” Explicitly: “Hanya ubah nuansa nya menjadi pixel isi tetap pertahankan.”
+- Supersedes ALL previous robot/mascot design decisions. Use the user's supplied original pixel Tiprr wordmark, not a generated or redrawn logo. Source: `https://customer-assets-jai6qajn.emergentagent.net/job_bonk-sender/artifacts/tf10yojk_file_000000006e1481faafb8aad5d292133d.png`.
+- Original saved in `frontend/public/tiprr-logo-original.png`. Prepared `tiprr-logo-pixel.png` by removing only connected exterior black background and trimming padding; enclosed black lettering and original gray/white pixel artwork preserved. `tiprr-logo-icon.png` is the favicon and touch icon.
+- Shared `BrandImage` replaces the Bot image component in home, demo avatar, footer, and all empty states. `Brand` contains the image only, with accessible link label and NO duplicate visible text. Workspace mobile header also uses the same image-only Brand. No robot is rendered in any current UI.
+- `frontend/src/pixel-theme.css` is the visual-only theme layer imported after App.css. Pixelify Sans headings, square edges, restrained offset shadows, grayscale branding; DM Sans body/form/balance text remains readable. Existing site copy, routes, animated command demo, forms and backend behavior retained unchanged.
+- Removed superseded `mascot.css`. Some unused older CSS selectors in App.css and archived robot files remain inert; do not reintroduce them in UI.
+- Verification: frontend build succeeds with only existing upstream Solana SDK source-map warnings. Desktop1920x800 and mobile390x844/320x800: no horizontal overflow or branding overlap. Header branding has no text node; all logo images and favicon return/load successfully. X dialog, wallet dialog, navigation and demo SOL/BONK/USDC/pause/replay regression checks pass. See `test_reports/iteration_3.json`.
+- QA noted expected HTTP401 from existing signed-out `/api/me` session checks. These are intentional server authorization responses, caught by AppContext with no application error logging or broken UI; not a rebrand regression. Kept authentication behavior unchanged per the user's style-only scope.
+- Next visual task is user feedback only; no content or financial feature changes requested in this phase. Prior production integration backlog remains as documented above.
+
+## Next session handoff (continued)
+
 Read TIPRR_SETUP.md, this PRD and test_reports/iteration_2.json first. Do not call the app a production-ready bot. Do not enable X from env values alone: identity + worker phase remains unimplemented. Do not accept arbitrary manual treasury deposits as credited. Keep the provided environment URLs and Mongo URI intact. Test accounts use ephemeral generated keys; there is intentionally no shared wallet private key in test_credentials.md.
